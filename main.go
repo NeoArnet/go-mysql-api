@@ -17,6 +17,10 @@ type Province struct {
 	Name string `json:"name"`
 }
 
+type ProvinceAll struct {
+	Name string `json:"name"`
+}
+
 func main() {
 
 	err := godotenv.Load()
@@ -27,6 +31,7 @@ func main() {
 	r := gin.Default()
 	r.Use(cors.Default())
 	r.GET("/getProvince", getProvince)
+	r.GET("/getProvinceAll", getProvinceAll)
 	r.Run("localhost:3000")
 
 }
@@ -42,6 +47,27 @@ func getProvince(c *gin.Context) {
 	for result.Next() {
 		var tag Province
 		err = result.Scan(&tag.ID, &tag.Name)
+		if err != nil {
+			panic(err.Error())
+		}
+		log.Printf(tag.Name)
+		provinces = append(provinces, tag)
+	}
+	json.NewEncoder(c.Writer).Encode(provinces)
+
+}
+
+func getProvinceAll(c *gin.Context) {
+	db := database.Connect()
+	var provinces []ProvinceAll
+	result, err := db.Query("call SP_GetProvinceByAll();")
+	if err != nil {
+		panic(err.Error())
+	}
+
+	for result.Next() {
+		var tag ProvinceAll
+		err = result.Scan(&tag.Name)
 		if err != nil {
 			panic(err.Error())
 		}

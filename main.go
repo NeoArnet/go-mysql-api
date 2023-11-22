@@ -26,12 +26,12 @@ func main() {
 
 	r := gin.Default()
 	r.Use(cors.Default())
-	r.GET("/getUsers", getUsers)
+	r.GET("/getProvince", getProvince)
 	r.Run("localhost:3000")
 
 }
 
-func getUsers(c *gin.Context) {
+func getProvince(c *gin.Context) {
 	db := database.Connect()
 	var posts []MemberType
 	result, err := db.Query("SELECT ProvinceId, NameProvince FROM Province")

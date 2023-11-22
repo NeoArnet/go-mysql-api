@@ -12,7 +12,7 @@ import (
 	"github.com/your-username/go-mysql-api/database"
 )
 
-type MemberType struct {
+type Province struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
@@ -33,21 +33,21 @@ func main() {
 
 func getProvince(c *gin.Context) {
 	db := database.Connect()
-	var posts []MemberType
+	var provinces []Province
 	result, err := db.Query("SELECT ProvinceId, NameProvince FROM Province")
 	if err != nil {
 		panic(err.Error())
 	}
 
 	for result.Next() {
-		var tag MemberType
+		var tag Province
 		err = result.Scan(&tag.ID, &tag.Name)
 		if err != nil {
 			panic(err.Error())
 		}
 		log.Printf(tag.Name)
-		posts = append(posts, tag)
+		provinces = append(provinces, tag)
 	}
-	json.NewEncoder(c.Writer).Encode(posts)
+	json.NewEncoder(c.Writer).Encode(provinces)
 
 }

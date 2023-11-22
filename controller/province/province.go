@@ -7,18 +7,19 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/your-username/go-mysql-api/database"
+	"github.com/your-username/go-mysql-api/model"
 )
 
 func GetProvince(c *gin.Context) {
 	db := database.Connect()
-	var provinces []database.Province
+	var provinces []model.Province
 	result, err := db.Query("SELECT ProvinceId, NameProvince FROM Province")
 	if err != nil {
 		panic(err.Error())
 	}
 
 	for result.Next() {
-		var tag database.Province
+		var tag model.Province
 		err = result.Scan(&tag.ID, &tag.Name)
 		if err != nil {
 			panic(err.Error())
@@ -32,14 +33,14 @@ func GetProvince(c *gin.Context) {
 
 func GetProvinceAll(c *gin.Context) {
 	db := database.Connect()
-	var provinces []database.ProvinceAll
+	var provinces []model.ProvinceAll
 	result, err := db.Query("call SP_GetProvinceByAll();")
 	if err != nil {
 		panic(err.Error())
 	}
 
 	for result.Next() {
-		var tag database.ProvinceAll
+		var tag model.ProvinceAll
 		err = result.Scan(&tag.Name)
 		if err != nil {
 			panic(err.Error())

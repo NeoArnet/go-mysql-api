@@ -4,10 +4,11 @@ import (
 	"encoding/json"
 	"log"
 
+	database "go-mysql-api/database"
+	model "go-mysql-api/model"
+
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
-	"go-mysql-api/database"
-	"go-mysql-api/model"
 )
 
 func GetProvince(c *gin.Context) {

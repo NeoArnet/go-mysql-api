@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"go-mysql-api/controller/province"
+	province "go-mysql-api/controller/province"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"

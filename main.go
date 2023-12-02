@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"go-mysql-api/controller/province"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
@@ -23,5 +24,4 @@ func main() {
 	r.GET("/getProvince", province.GetProvince)
 	r.GET("/getProvinceAll", province.GetProvinceAll)
 	r.Run()
-
 }

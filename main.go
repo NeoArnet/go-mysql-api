@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/NeoArnet/go-mysql-api/controller/province"
+	"go-mysql-api/controller/province"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"

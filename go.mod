@@ -1,4 +1,4 @@
-module github.com/your-username/go-mysql-api
+module go-mysql-api
 
 go 1.21.4
 

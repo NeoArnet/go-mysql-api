@@ -6,8 +6,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/NeoArnet/go-mysql-api/database"
-	"github.com/NeoArnet/go-mysql-api/model"
+	"go-mysql-api/database"
+	"go-mysql-api/model"
 )
 
 func GetProvince(c *gin.Context) {

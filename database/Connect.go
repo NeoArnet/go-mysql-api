@@ -9,7 +9,7 @@ import (
 )
 
 func Connect() *sql.DB {
-	err := godotenv.Load(".env")
+	err := godotenv.Load()
 	if err != nil {
 		fmt.Println("Error loading .env file")
 	}

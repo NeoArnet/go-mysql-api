@@ -1,6 +1,7 @@
 module go-mysql-api
 
-go 1.21.4
+//go 1.21.4
+go 1.18
 
 require github.com/gin-contrib/cors v1.4.0
 

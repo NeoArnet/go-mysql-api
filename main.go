@@ -22,6 +22,6 @@ func main() {
 
 	r.GET("/getProvince", province.GetProvince)
 	r.GET("/getProvinceAll", province.GetProvinceAll)
-	r.Run("localhost:3000")
+	r.Run()
 
 }

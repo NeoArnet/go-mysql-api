@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	insertupdateall "go-mysql-api/controller/insertupdateall"
 	province "go-mysql-api/controller/province"
 
 	"github.com/gin-contrib/cors"
@@ -24,6 +25,7 @@ func main() {
 	r.GET("/Getcategories", province.Getcategories)
 	r.GET("/Getproducts", province.Getproducts)
 	r.GET("/Getproducts/:id", province.GetproductsID)
+	r.POST("/CreateCategories", insertupdateall.CreateCategories)
 	//r.GET("/getProvince", province.GetProvince)
 	//r.GET("/getProvinceAll", province.GetProvinceAll)
 	r.Run()

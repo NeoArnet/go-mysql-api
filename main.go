@@ -21,7 +21,10 @@ func main() {
 	r := gin.Default()
 	r.Use(cors.Default())
 
-	r.GET("/getProvince", province.GetProvince)
-	r.GET("/getProvinceAll", province.GetProvinceAll)
+	r.GET("/Getcategories", province.Getcategories)
+	r.GET("/Getproducts", province.Getproducts)
+	r.GET("/Getproducts/:id", province.GetproductsID)
+	//r.GET("/getProvince", province.GetProvince)
+	//r.GET("/getProvinceAll", province.GetProvinceAll)
 	r.Run()
 }

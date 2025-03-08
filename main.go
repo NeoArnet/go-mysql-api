@@ -27,6 +27,6 @@ func main() {
 	r.GET("/Getproducts/:id", province.GetproductsID)
 	r.POST("/CreateCategories", insertupdateall.CreateCategories)
 	//r.GET("/getProvince", province.GetProvince)
-	//r.GET("/getProvinceAll", province.GetProvinceAll)
+	r.GET("/getProvinceAll", province.GetProvinceAll)
 	r.Run()
 }
